@@ -12,10 +12,10 @@ function App() {
       console.log(code);
       setValue(code);
     })
+    socket.on("coding", (e)=>{
+      setValue(e);
+    })
   }, [])
-  socket.on("coding", (e)=>{
-    setValue(e);
-  })
 
   return (
     <>
