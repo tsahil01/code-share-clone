@@ -16,8 +16,11 @@ const Monaco = function() {
         })
     }, [])
 
-    return <Editor 
-        height="90vh" 
+    return <>
+    <h1>Code Editor</h1>
+    <hr />
+    <Editor 
+        height="80vh" 
         defaultLanguage="javascript" 
         theme='vs-dark'
         value={value}
@@ -27,7 +30,8 @@ const Monaco = function() {
             setValue(newValue);
             socket.emit("code", newValue);
         }}
-     />;
+        />;
+        </>
 }
 
 export default Monaco
