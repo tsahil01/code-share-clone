@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const PORT = 3000;
 const app = express();
+const { useAzureSocketIO } = require("@azure/web-pubsub-socket.io");
 
 app.use(express.json());
 app.use(cors());

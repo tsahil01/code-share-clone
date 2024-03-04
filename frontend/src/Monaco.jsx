@@ -2,7 +2,7 @@ import Editor from '@monaco-editor/react';
 import { useEffect, useState } from 'react'
 
 import { io } from "socket.io-client";
-const socket = io("http://localhost:3000/");
+const socket = io("https://code-share.webpubsub.azure.com");
 
 const Monaco = function () {
     const [value, setValue] = useState();
@@ -32,6 +32,7 @@ const Monaco = function () {
                         socket.emit("code", newValue);
                     }}
                     defaultValue='// Write your code here'
+                    loading= {<><h3>Loading Code..</h3></>}
                 />
             </div>
         </div>
