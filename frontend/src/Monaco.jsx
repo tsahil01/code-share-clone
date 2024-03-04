@@ -2,7 +2,10 @@ import Editor from '@monaco-editor/react';
 import { useEffect, useState } from 'react'
 
 import { io } from "socket.io-client";
-const socket = io("https://code-share.webpubsub.azure.com");
+const socket = io("https://code-share.webpubsub.azure.com", {
+    path: "/clients/socketio/hubs/Hub",
+});
+
 
 const Monaco = function () {
     const [value, setValue] = useState();
