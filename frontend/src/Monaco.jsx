@@ -2,10 +2,10 @@ import Editor from '@monaco-editor/react';
 import { useEffect, useState } from 'react'
 
 import { io } from "socket.io-client";
+import Cursor from './Cursor';
 const socket = io("https://code-share.webpubsub.azure.com", {
     path: "/clients/socketio/hubs/Hub",
 });
-
 
 const Monaco = function () {
     const [value, setValue] = useState();
@@ -17,6 +17,9 @@ const Monaco = function () {
         socket.on("coding", (e) => {
             setValue(e);
         })
+        socket.on('draw_cursor', function (data) {
+            return <Cursor key={data.id} id={data.id} line={data.line} />;
+          });
     }, [])
 
     return (

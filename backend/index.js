@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
+require('dotenv').config();
 
 const PORT = 3000;
 const app = express();
@@ -20,7 +21,7 @@ const io = new Server(3000);
 
   useAzureSocketIO(io, {
     hub: "Hub", // The hub name can be any valid string.
-    connectionString: process.argv[2]
+    connectionString: process.env.CONNECTION_STRING,
   });
 
 io.on("connection", (socket) => {
@@ -34,6 +35,10 @@ io.on("connection", (socket) => {
       socket.broadcast.emit("coding", val);
       code = val;
     })
+
+    socket.on('draw_cursor', function (data) {
+      io.emit('draw_cursor', { line: data.line, id: socket.id });
+    });
   });
 
 // app.get('/', (req, res)=>{
