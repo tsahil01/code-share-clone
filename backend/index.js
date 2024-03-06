@@ -28,6 +28,11 @@ io.on("connection", (socket) => {
     console.log("User connected: ", socket.id); // x8WIv7-mJelg7on_ALbx
     socket.emit("user-connected", code)
 
+    socket.on('updateCursorPosition', (position) => {
+      
+      io.emit('cursorPositionUpdated', { socketId: socket.id, position });
+    });
+
     socket.on('disconnect', () => {
         console.log("User disconnected")
     })
