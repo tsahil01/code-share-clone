@@ -66,7 +66,7 @@ const Monaco = function () {
 
 
   return (
-    <div style={{ position: 'relative', height: '100vh' }} onMouseMove={handleMouseMove}>
+    <div style={{ position: 'relative', height: '100vh', overflow: "hidden" }} onMouseMove={handleMouseMove}>
       {Object.entries(cursorPositions).map(([socketId, position]) => (
         <div
         key={socketId}
