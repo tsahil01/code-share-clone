@@ -66,11 +66,11 @@ const Monaco = function () {
 
 
   return (
-    <div style={{ position: 'relative', height: '100vh', overflow: "hidden" }} onMouseMove={handleMouseMove}>
+    <div style={{ position: 'relative', height: '100vh', overflow: "hidden" }} onMouseMove={handleMouseMove} className=''>
       {Object.entries(cursorPositions).map(([socketId, position]) => (
         <div
         key={socketId}
-        className={`absolute w-5 h-5 rounded-full z-10`}
+        className={`absolute w-5 h-5 rounded-xl z-10`}
         style={{
           position: 'absolute',
           left: position.x,
@@ -80,10 +80,11 @@ const Monaco = function () {
       ></div>
       ))}
 
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white">
         <h1 className="text-2xl md:text-4xl p-4 font-bold mb-8">🚀 Live Coding! ✨</h1>
-        <div className="w-4/5 bg-opacity-70 bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 rounded-lg shadow-lg overflow-hidden">
+        <div className="w-4/5 p-2 bg-opacity-70 bg-black rounded-lg shadow-lg overflow-hidden">
           <Editor
+          className=''
             height="80vh"
             defaultLanguage="javascript"
             theme="vs-dark"
