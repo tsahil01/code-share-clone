@@ -86,7 +86,7 @@ const Monaco = function () {
           <Editor
           className=''
             height="80vh"
-            defaultLanguage="javascript"
+            defaultLanguage="cpp"
             theme="vs-dark"
             value={value}
             onChange={(e) => {
